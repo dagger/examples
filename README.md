@@ -12,7 +12,7 @@ https://github.com/dagger/dagger/discussions/2874
   - multistage
 - java
   - [gradle](https://github.com/dagger/examples/tree/main/templates/java/gradle)
-  - maven
+  - [maven](https://github.com/dagger/examples/tree/main/templates/java/maven)
 - go
   - [universe](https://github.com/dagger/examples/tree/main/templates/go/universe)
 - nodejs
