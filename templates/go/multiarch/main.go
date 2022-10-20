@@ -56,7 +56,7 @@ func build(repoUrl string) error {
 	for _, version := range goVersions {
 		// Get golang image and mount go source
 		imageTag := fmt.Sprintf("golang:%s", version)
-		golang := client.Core().Container().From(api.ContainerAddress(imageTag))
+		golang := client.Core().Container().From(imageTag)
 		golang = golang.WithMountedDirectory("/src", src).WithWorkdir("/src")
 
 		// Run matrix builds in parallel
