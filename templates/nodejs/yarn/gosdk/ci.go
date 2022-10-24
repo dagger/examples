@@ -4,8 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"go.dagger.io/dagger/sdk/go/dagger"
-	"go.dagger.io/dagger/sdk/go/dagger/api"
+	"dagger.io/dagger"
 )
 
 func main() {
@@ -26,19 +25,19 @@ func doCi() error {
 	defer client.Close()
 
 	// get the projects source directory
-	src, err := client.Core().Host().Workdir().Read().ID(ctx)
+	src, err := client.Host().Workdir().Read().ID(ctx)
 	if err != nil {
 		return err
 	}
 
 	// initialize new container from yarn image
-	yarn := client.Core().Container().From("yarnpkg/node-yarn")
+	yarn := client.Container().From("yarnpkg/node-yarn")
 
 	// mount source directory to /src
 	yarn = yarn.WithMountedDirectory("/src", src).WithWorkdir("/src")
 
 	// execute yarn test command
-	yarn = yarn.Exec(api.ContainerExecOpts{
+	yarn = yarn.Exec(dagger.ContainerExecOpts{
 		Args: []string{"yarn", "test"},
 	})
 
@@ -51,7 +50,7 @@ func doCi() error {
 	fmt.Println(test)
 
 	// execute build command
-	yarn = yarn.Exec(api.ContainerExecOpts{
+	yarn = yarn.Exec(dagger.ContainerExecOpts{
 		Args: []string{"yarn", "build"},
 	})
 
