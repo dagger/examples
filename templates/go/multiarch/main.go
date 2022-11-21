@@ -7,7 +7,6 @@ import (
 	"path/filepath"
 
 	"dagger.io/dagger"
-	"golang.org/x/sync/errgroup"
 )
 
 func main() {
@@ -28,7 +27,6 @@ func main() {
 
 func build(repoUrl string) error {
 	ctx := context.Background()
-	g, ctx := errgroup.WithContext(ctx)
 
 	// Our build matrix
 	oses := []string{"linux", "darwin"}
@@ -46,6 +44,8 @@ func build(repoUrl string) error {
 	repo := client.Git(repoUrl)
 	src := repo.Branch("main").Tree()
 
+	outdir := client.Directory()
+
 	for _, version := range goVersions {
 		// Get golang image and mount go source
 		imageTag := fmt.Sprintf("golang:%s", version)
@@ -55,41 +55,18 @@ func build(repoUrl string) error {
 		// Run matrix builds in parallel
 		for _, goos := range oses {
 			for _, goarch := range arches {
-				goos, goarch, version := goos, goarch, version // closures
-				g.Go(func() error {
-					return buildOsArch(ctx, golang, goos, goarch, version)
+				path := fmt.Sprintf("build/%s/%s/%s/", version, goos, goarch)
+
+				// Set GOARCH and GOOS and build
+				build := golang.WithEnvVariable("GOOS", goos)
+				build = build.WithEnvVariable("GOARCH", goarch)
+				build = build.Exec(dagger.ContainerExecOpts{
+					Args: []string{"go", "build", "-o", path},
 				})
+				outdir = outdir.WithDirectory(path, build.Directory(path))
 			}
 		}
 	}
-	if err := g.Wait(); err != nil {
-		return err
-	}
-	return nil
-}
-
-func buildOsArch(ctx context.Context, builder *dagger.Container, goos string, goarch string, version string) error {
-	fmt.Printf("Building %s %s with go %s\n", goos, goarch, version)
-
-	// Create the output path for the build
-	path := fmt.Sprintf("build/%s/%s/%s/", version, goos, goarch)
-	outpath := filepath.Join(".", path)
-	err := os.MkdirAll(outpath, os.ModePerm)
-	if err != nil {
-		return err
-	}
-
-	// Set GOARCH and GOOS and build
-	build := builder.WithEnvVariable("GOOS", goos)
-	build = build.WithEnvVariable("GOARCH", goarch)
-	build = build.Exec(dagger.ContainerExecOpts{
-		Args: []string{"go", "build", "-o", path},
-	})
-
-	// Get build output from builder
-	output := build.Directory(path)
-
-	// Write the build output to the host
-	_, err = output.Export(ctx, path)
+	_, err = outdir.Export(ctx, ".")
 	return err
 }
