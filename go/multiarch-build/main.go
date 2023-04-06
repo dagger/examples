@@ -45,7 +45,7 @@ func build(ctx context.Context, repoURL string) error {
 		imageTag := fmt.Sprintf("golang:%s", version)
 		golang := client.Container().
 			From(imageTag).
-			WithMountedDirectory("/src", src).
+			WithDirectory("/src", src).
 			WithWorkdir("/src")
 
 		for _, goos := range oses {
