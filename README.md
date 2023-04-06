@@ -10,15 +10,53 @@ If you'd like to see a new example, please open an issue.
 - [NodeJS](./nodejs/db-service/build.js#L19)
 - [Python](./python/db-service/pipeline.py#L28)
 
+### Multi-stage build
+
+- [Go]() TODO
+- [NodeJS]() TODO
+- [Python]() TODO
+
+### Multi-platform build
+
+- [Go]() TODO
+- [NodeJS]() TODO
+- [Python]() TODO
+
+### Cache mounts
+
+- [Go]() TODO
+- [NodeJS]() TODO
+- [Python]() TODO
+
 ### Concurrency
 
 - [Go](./go/multiarch-build/main.go#43)
+- [NodeJS]() TODO
+- [Python]() TODO
+
+### Container publishing
+
+- [Go]() TODO
+- [NodeJS]() TODO
+- [Python]() TODO
+
+### Secrets
+
+- [Go]() TODO
+- [NodeJS]() TODO
+- [Python]() TODO
 
 ### Services
 
 - [Go](./go/db-service/main.go#L22)
 - [NodeJS](./nodejs/db-service/build.js#L6)
 - [Python](./python/db-service/pipeline.py#L10)
+
+### Testing your pipelines
+
+- [Go]() TODO
+- [NodeJS]() TODO
+- [Python]() TODO
 
 ## By Language
 
