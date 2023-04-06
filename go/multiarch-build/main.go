@@ -9,11 +9,12 @@ import (
 )
 
 func main() {
+	repo := ""
 	if len(os.Args) < 2 {
-		fmt.Println("Must pass in a Git repository to build")
-		os.Exit(1)
+		repo = "https://github.com/goreleaser/goreleaser"
+	} else {
+		repo = os.Args[1]
 	}
-	repo := os.Args[1]
 	if err := build(context.Background(), repo); err != nil {
 		fmt.Println(err)
 	}
