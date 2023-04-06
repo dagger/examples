@@ -12,9 +12,9 @@ If you'd like to see a new example, please open an issue.
 
 ### Multi-stage build
 
-- [Go]() TODO
-- [NodeJS]() TODO
-- [Python]() TODO
+- [Go](./go/multistage/main.go#L31)
+- [NodeJS](./nodejs/multistage/build.js#L14)
+- [Python](./python/multistage/pipeline.py#L19)
 
 ### Multi-platform build
 
@@ -24,7 +24,7 @@ If you'd like to see a new example, please open an issue.
 
 ### Cache mounts
 
-- [Go]() TODO
+- [Go]() TODO - demo this in multi-plat example
 - [NodeJS]() TODO
 - [Python]() TODO
 
@@ -36,9 +36,9 @@ If you'd like to see a new example, please open an issue.
 
 ### Container publishing
 
-- [Go]() TODO
-- [NodeJS]() TODO
-- [Python]() TODO
+- [Go](./go/multistage/main.go#L41)
+- [NodeJS](./nodejs/multistage/build.js#23)
+- [Python](./python/multistage/pipeline.py#L30)
 
 ### Secrets
 
