@@ -37,14 +37,14 @@ If you'd like to see a new example, please open an issue.
 ### Container publishing
 
 - [Go](./go/multistage/main.go#L41)
-- [NodeJS](./nodejs/multistage/build.js#23)
+- [NodeJS](./nodejs/multistage/build.js#L23)
 - [Python](./python/multistage/pipeline.py#L30)
 
 ### Secrets
 
-- [Go]() TODO
-- [NodeJS]() TODO
-- [Python]() TODO
+- [Go](./go/secrets/main.go#L21)
+- [NodeJS](./nodejs/secrets/ci.js#L6)
+- [Python](./python/secrets/pipeline.py#L9)
 
 ### Services
 
