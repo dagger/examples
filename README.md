@@ -69,6 +69,9 @@ Note: While the DAG is constructed serially, the engine will execute the full DA
 - [yarn build](./go/yarn-build/)
 - [gradle build](./go/gradle-build/)
 - [services](./go/db-service/)
+- [secrets](./go/secrets/)
+- [multiplatform](./go/multiplatform/)
+- [multistage](./go/multistage/)
 - [replace dockerfile](./go/replace-dockerfile/)
 - [aws cdk](./go/aws-cdk/)
 
@@ -76,11 +79,17 @@ Note: While the DAG is constructed serially, the engine will execute the full DA
 
 - [basic example](./python/basic-example/)
 - [services](./python/db-service/)
+- [secrets](./python/secrets/)
+- [multiplatform](./python/multiplatform/)
+- [multistage](./python/multistage/)
 
 ### Node.js (Typescript/Javascript)
 
 - [react build](./nodejs/react-build/)
 - [services](./nodejs/db-service/)
+- [secrets](./nodejs/secrets/)
+- [multiplatform](./nodejs/multiplatform/)
+- [multistage](./nodejs/multistage/)
 
 ### Bash with Dagger CLI and GraphQL
 
