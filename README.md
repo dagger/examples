@@ -18,21 +18,23 @@ If you'd like to see a new example, please open an issue.
 
 ### Multi-platform build
 
-- [Go]() TODO
-- [NodeJS]() TODO
-- [Python]() TODO
+- [Go](./go/multiplatform/main.go#L30)
+- [NodeJS](./nodejs/multiplatform/build.js#L16)
+- [Python](./python/multiplatform/pipeline.py#L19)
 
 ### Cache mounts
 
-- [Go]() TODO - demo this in multi-plat example
-- [NodeJS]() TODO
-- [Python]() TODO
+- [Go](./go/multiplatform/main.go#L34)
+- [NodeJS](./nodejs/multiplatform/build.js#L20)
+- [Python](./python/multiplatform/pipeline.py#L23)
 
 ### Concurrency
 
-- [Go](./go/multiarch-build/main.go#43)
-- [NodeJS]() TODO
-- [Python]() TODO
+Note: While the DAG is constructed serially, the engine will execute the full DAG when the build artifacts directory is exported. Since each platform's build doesn't depend on the others, the engine will execute each build concurrently.
+
+- [Go](./go/multiplatform/main.go#L29)
+- [NodeJS](./nodejs/multiplatform/build.js#L15)
+- [Python](./python/multiplatform/pipeline.py#L17)
 
 ### Container publishing
 
