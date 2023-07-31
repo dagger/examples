@@ -15,6 +15,7 @@ If you'd like to see a new example, please open an issue.
 - [Go](./go/multistage/main.go#L31)
 - [NodeJS](./nodejs/multistage/build.js#L14)
 - [Python](./python/multistage/pipeline.py#L19)
+- [Elixir](./elixir/multistage.exs#L22)
 
 ### Multi-platform build
 
