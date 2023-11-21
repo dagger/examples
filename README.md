@@ -1,6 +1,6 @@
 # DEPRECATION NOTICE
 
-This repository is deprecated and will be removed on 1 Dec 2023. Dagger SDK examples in this repository have been migrated to the [primary Dagger repository](https://github.com/dagger/dagger) and work will continue in the new locations below:
+This repository is deprecated and will be removed on 21 Nov 2023. Dagger SDK examples in this repository have been migrated to the [primary Dagger repository](https://github.com/dagger/dagger) and work will continue in the new locations below:
 
 - [Go SDK examples](https://github.com/dagger/dagger/tree/main/examples/sdk/go)
 - [Node.js SDK examples](https://github.com/dagger/dagger/tree/main/examples/sdk/nodejs)
